@@ -9,7 +9,7 @@ pub fn run() {
     println!("x={}ETH, y=${}, L={}", x, y, l);
 
     // after transaction
-    let delta: f32 = 500.0; // amount out of token x
+    let delta: f32 = 250.0; // amount out of token x
     let amount_out = (delta * y) / (fee * (x - delta));
     let x1 = x - delta; // amount tokens x after
     let y1 = y + amount_out; // amount tokens y after
