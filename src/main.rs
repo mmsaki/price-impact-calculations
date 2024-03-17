@@ -1,9 +1,9 @@
 mod swap_math;
 mod swap_no_fees;
 fn main() {
-    println!("-------- no fees math ---------");
+    println!("-------- swap w/o fees ---------");
     swap_no_fees::run();
 
-    println!("\n-------- swap w/ fees ---------");
+    println!("\n-------- swap with fees ---------");
     swap_math::run();
 }

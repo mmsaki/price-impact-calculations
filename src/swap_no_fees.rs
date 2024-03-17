@@ -4,6 +4,7 @@ pub fn run() {
     let y = 800_000; // amount tokens y in pool
     let l = x * y; // constant L
 
+    println!("pool before");
     println!("x={}ETH, y=${}, L={}", x, y, l);
 
     // after transaction
@@ -15,7 +16,8 @@ pub fn run() {
 
     assert_eq!(l, li); // check invariant
 
-    println!("a={}ETH, b=${}, L={}", a, b, li);
+    println!("pool after");
+    println!("x={}ETH, y=${}, L={}", a, b, li);
 
     // Impact of trade
     let p = y / x; // spot price

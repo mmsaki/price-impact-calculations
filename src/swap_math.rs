@@ -5,6 +5,7 @@ pub fn run() {
     let fee = 1.0 - 0.003; // uniswap fee
     let l = x * y; // constant L
 
+    println!("pool before swap");
     println!("x={}ETH, y=${}, L={}", x, y, l);
 
     // after transaction
@@ -16,12 +17,15 @@ pub fn run() {
 
     assert!(li > l);
 
-    println!("a={}ETH, b=${}, L={}", a, b, li);
+    println!("\npool after swap");
+    println!("x={}ETH, y=${}, L={}", a, b, li);
 
     // Impact of trade
     let p = y / x; // spot price
     let pe = lambda / (x - a); // effective price
     let impact = lambda - p * (x - a); // price impact of trade
-    let pi = b / a; // price after trade
+    let pi = b / a; // new price after trade
+
+    println!("\nprice impact of swap");
     println!("p=${}, pe=${}, i=${}, pi=${}", p, pe, impact, pi);
 }
