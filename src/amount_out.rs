@@ -5,7 +5,7 @@ pub fn run() {
     let fee = 1.0 - 0.003; // uniswap fee
     let l = x * y; // constant L
 
-    println!("pool before swap");
+    println!("1. pool before swap");
     println!("x={}ETH, y=${}, L={}", x, y, l);
 
     // after transaction
@@ -18,8 +18,8 @@ pub fn run() {
 
     assert!(li > l);
 
-    println!("\npool after swap");
-    println!("x={}ETH, y=${}, L={}", x1, y1, li);
+    println!("\n2. pool after swap");
+    println!("x={}ETH, y=${}, L={}, USDC_in=${}", x1, y1, li, amount_out);
 
     // Impact of trade
     let p = y / x; // spot price
@@ -27,6 +27,14 @@ pub fn run() {
     let impact = pe * (x - x1) - p * (x - x1); // price impact of trade
     let pi = y1 / x1; // new price after trade
 
-    println!("\nprice impact of swap");
-    println!("p=${}, pe=${}, i=${}, pi=${}", p, pe, impact, pi);
+    println!("\n\tprice impact of swap");
+    println!("\tp=${}, pe=${}, i=${}, pi=${}", p, pe, impact, pi);
+
+    // if we buy after swap
+    let amount_out2 = (delta * (y + amount_out)) / (fee * (x - 2.0 * delta));
+    let x2 = x1 - delta;
+    let y2 = y1 + amount_out2;
+    let l2 = x2 * y2;
+    println!("\n3. price on 2nd swap");
+    println!("x=${}, y=${}, L=${}, USDC_in=${}", x2, y2, l2, amount_out2);
 }
