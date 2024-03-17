@@ -15,12 +15,12 @@ pub fn run() {
 
     assert_eq!(l, li); // check invariant
 
-    println!("x={}ETH, y=${}, L={}", a, b, li);
+    println!("a={}ETH, b=${}, L={}", a, b, li);
 
     // Impact of trade
     let p = y / x; // spot price
     let pe = lambda / (x - a); // effective price
     let impact = lambda - p * (x - a); // price impact of trade
     let pi = b / a; // price after trade
-    println!("p=${}, pe=${}, impact=${}, pi=${}", p, pe, impact, pi);
+    println!("p=${}, pe=${}, i=${}, pi=${}", p, pe, impact, pi);
 }
