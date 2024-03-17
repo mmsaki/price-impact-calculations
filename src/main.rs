@@ -5,7 +5,7 @@ fn main() {
 
     let l = x * y; // constant L
 
-    println!("x={}, y={}, L={}", x, y, l);
+    println!("x={}ETH, y=${}, L={}", x, y, l);
 
     // after transaction
     let lambda = 200_000; // amount in of token y
@@ -16,11 +16,12 @@ fn main() {
 
     assert_eq!(l, li); // check invariant
 
-    println!("x={}, y={}, L={}", a, b, li);
+    println!("x={}ETH, y=${}, L={}", a, b, li);
 
-    // Impoact
+    // Impact of trade
     let p = y / x; // spot price
-    let pe = lambda / (x - a); // effectie price
+    let pe = lambda / (x - a); // effective price
+    let impact = lambda - p * (x - a); // price impact of trade
     let pi = b / a; // price after trade
-    println!("p={}, pe={}, pi={}", p, pe, pi);
+    println!("p=${}, pe=${}, impact=${}, pi=${}", p, pe, impact, pi);
 }
