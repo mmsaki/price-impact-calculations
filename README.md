@@ -27,8 +27,8 @@ This project attempts to calculate the price impact of a trade in a constant pro
 
 ### Prerequisites
 
-- Rust
-- Cargo
+- [Rust](https://www.rust-lang.org/learn/get-started)
+- [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html)
 
 ### Installation
 
