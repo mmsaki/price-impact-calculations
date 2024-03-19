@@ -81,6 +81,10 @@ fn main() {
 }
 ```
 
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated. Please open an issue or submit a pull request to contribute.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
