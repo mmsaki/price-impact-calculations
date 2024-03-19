@@ -1,28 +1,28 @@
 pub fn run() {
     // before transaction
-    let x = 200; // amount tokens x in pool
-    let y = 800_000; // amount tokens y in pool
-    let l = x * y; // constant L
+    let a = 200; // amount tokens A in pool
+    let b = 800_000; // amount tokens B in pool
+    let k = a * b; // constant k
 
-    println!("pool before");
-    println!("x={}ETH, y=${}, L={}", x, y, l);
+    println!("Pool before");
+    println!("A={}ETH, B=${}, k={}", a, b, k);
 
     // after transaction
     let lambda = 200_000; // amount in of token y
-    let b = y + lambda; // amount tokens y after
-    let a = l / b; // amount tokens x after
+    let y = b + lambda; // amount tokens b after
+    let x = k / y; // amount tokens a after
 
-    let li = a * b; // constant L after trade
+    let ki = x * y; // constant k after trade
 
-    assert_eq!(l, li); // check invariant
+    assert_eq!(k, ki); // check invariant
 
-    println!("pool after");
-    println!("x={}ETH, y=${}, L={}", a, b, li);
+    println!("Pool after");
+    println!("A={}ETH, B=${}, k={}", x, y, ki);
 
     // Impact of trade
-    let p = y / x; // spot price
-    let pe = lambda / (x - a); // effective price
-    let impact = lambda - p * (x - a); // price impact of trade
-    let pi = b / a; // price after trade
+    let p = b / a; // spot price
+    let pe = lambda / (a - x); // effective price
+    let impact = lambda - p * (a - x); // price impact of trade
+    let pi = y / x; // price after trade
     println!("p=${}, pe=${}, i=${}, pi=${}", p, pe, impact, pi);
 }

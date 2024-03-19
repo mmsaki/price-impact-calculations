@@ -1,32 +1,32 @@
 pub fn run() {
     // before transaction
-    let x: f32 = 200.0; // amount tokens x in pool
-    let y: f32 = 800_000.0; // amount tokens y in pool
+    let a: f32 = 200.0; // amount tokens A in pool
+    let b: f32 = 800_000.0; // amount tokens B in pool
     let fee = 1.0 - 0.003; // uniswap fee
-    let l = x * y; // constant L
+    let k = a * b; // constant k
 
-    println!("pool before swap");
-    println!("x={}ETH, y=${}, L={}", x, y, l);
+    println!("Pool before swap");
+    println!("A={}ETH, B=${}, k={}", a, b, k);
 
     // after transaction
     let lambda: f32 = 200_000.0; // amount in of token y
-    let amount_in = (x * fee * lambda) / (y + fee * lambda);
-    let x1 = x - amount_in; // amount tokens x after
-    let y1 = y + lambda; // amount tokens y after
+    let amount_in = (a * fee * lambda) / (b + fee * lambda);
+    let x = a - amount_in; // amount tokens A after
+    let y = b + lambda; // amount tokens B after
 
-    let li = x1 * y1; // constant L after trade
+    let ki = x * y; // constant k after trade
 
-    assert!(li > l);
+    assert!(ki > k);
 
-    println!("\npool after swap");
-    println!("x={}ETH, y=${}, L={}", x1, y1, li);
+    println!("Pool after swap");
+    println!("A={}ETH, B=${}, k={}", x, y, ki);
 
     // Impact of trade
-    let p = y / x; // spot price
-    let pe = lambda / (x - x1); // effective price
-    let impact = pe * (x - x1) - p * (x - x1); // price impact of trade
-    let pi = y1 / x1; // new price after trade
+    let p = b / a; // spot price
+    let pe = lambda / (a - x); // effective price
+    let impact = pe * (a - x) - p * (a - x); // price impact of trade
+    let pi = y / x; // new price after trade
 
-    println!("\nprice impact of swap");
+    println!("Price impact of swap");
     println!("p=${}, pe=${}, i=${}, pi=${}", p, pe, impact, pi);
 }

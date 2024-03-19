@@ -8,6 +8,6 @@ fn main() {
     println!("\n-------- swap: amount in ---------");
     swap_math::run();
 
-    println!("\n-------- swap: amount out ---------");
+    println!("\n-------- swap: amount out w/ 2 consecutive trades ---------");
     amount_out::run();
 }
