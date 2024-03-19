@@ -1,4 +1,4 @@
-# Price Impact on a Constant Product Market Maker (CPMM)
+# Price Impact Calculations
 
 Assuming a constant product market maker pool with two tokens, A and B, the price of token A in terms of token B is given by the following formula:
 
