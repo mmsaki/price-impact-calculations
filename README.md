@@ -8,22 +8,7 @@ where A is the amount of token A in the pool, B is the amount of token B in the 
 
 ## Introduction
 
-This project attempts to calculate the price impact of a trade in a constant product market maker. However, it is important to note that this code should not be considered a substitute for learning about DEFI Uniswap V2 constant product market maker in-depth. It is always recommended to thoroughly understand the underlying concepts and principles before relying solely on automated calculations.
-
-## Definitions
-
-- `A`: The token A in the pool
-- `B`: The token B in the pool
-- `k`: A constant
-- `x`: The amount of token A after the trade
-- `y`: The amount of token B after the trade
-- `delta` and `lambda`: amount out `x` and amount in `y` depending on whether token A or token B is being bought or sold
-- `p`: The price of token A in terms of token B before the trade
-- `pe`: The effective price of token A in terms of token B after the trade (i.e., the price actual price paid of token A in terms of token B after accounting for the price impact)
-- `i`: The price impact of the trade
-- `pi`: The price of token A in terms of token B after the trade
-
-## Getting Started
+This project attempts to calculate the price impact of a trade in a constant product market maker. However, it is important to note that this code should not be considered a substitute for learning about DEFI Uniswap V2 constant product market maker in-depth. It is always recommended to thoroughly understand the underlying concepts and principles before relying solely on automated calculations. See [Automated Market Makers - Miguel Ottina & Peter Johannes Steffensen & Jesper Kristensen](https://learning.oreilly.com/library/view/automated-market-makers/9781484286166/) as a primer on the topic.
 
 ### Prerequisites
 
@@ -85,6 +70,19 @@ fn main() {
     println!("Price after trade: ${}", pi);
 }
 ```
+
+## Definitions
+
+- `A`: The token A in the pool
+- `B`: The token B in the pool
+- `k`: A constant
+- `x`: The amount of token A after the trade
+- `y`: The amount of token B after the trade
+- `delta` and `lambda`: amount out `x` and amount in `y` depending on whether token A or token B is being bought or sold
+- `p`: The price of token A in terms of token B before the trade
+- `pe`: The effective price of token A in terms of token B after the trade (i.e., the price actual price paid of token A in terms of token B after accounting for the price impact)
+- `i`: The price impact of the trade
+- `pi`: The price of token A in terms of token B after the trade
 
 ## Contributing
 
