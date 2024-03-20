@@ -68,16 +68,21 @@ cargo run
 
 ```rust
 fn main() {
-    let a = 200;                        // ETH
-    let b = 800_000;                    // USDC
-    let k = a * b;                      // constant
-    let delta = 200_000;                // usdc amount_in
-    let p = b / a;                      // price before trade
-    let pe = lambda / (a - x);          // effective price after trade
-    let i = lambda - p * (a - x);       // price impact of the trade
-    let pi = y / x                      // price after trade
-    println!("Price Impact: {}", i);
-    println!("Price after trade: {}", pi);
+    let a = 200;                          // ETH
+    let b = 800_000;                      // USDC
+    let k = a * b;                        // constant
+    let delta = 200_000;                  // usdc amount_in
+    let y = b + delta;                    // amount tokens b after
+    let x = k / y;                        // amount tokens a after
+    let p = b / a;                        // price before trade
+    let pe = delta / (a - x);             // effective price after trade
+    let i = delta - p * (a - x);          // price impact of the trade
+    let pi = y / x;                       // price after trade
+    println!(
+        "Price Impact: ${} loss when buying {}ETH with {}USDC",
+        i, a, b
+    );
+    println!("Price after trade: ${}", pi);
 }
 ```
 
